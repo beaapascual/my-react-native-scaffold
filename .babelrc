@@ -1,0 +1,12 @@
+{
+    "presets": ["module:metro-react-native-babel-preset"],
+    "plugins": [
+        ["reflective-bind/babel", {
+            "log": "debug",
+            "propRegex": "^on[A-Z].*$"
+        }],
+        ["babel-plugin-root-import", {
+            "rootPathSuffix": "./app"
+        }]
+    ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest",
+    "lint": "eslint app/.",
+    "fixlint": "eslint --fix app/.; exit 0",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint",
+    "postmerge": "sh hooks/post-merge.sh",
+    "cleanbabelrc": "find node_modules -type f -not -regex \".*react-native\\/.*\" -name \".babelrc\" -exec rm -rf {} \\;",
+    "delrnfixtures": "rm -f ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json",
+    "postinstall": "npm run cleanbabelrc && npm run delrnfixtures && npx jetify",
+    "cleancache": "watchman watch-del-all && rm -rf $TMPDIR/react-*"
+  },
+  "dependencies": {
+    "@react-native-community/netinfo": "^4.6.1",
+    "babel-preset-react-native": "^4.0.1",
+    "fbemitter": "^2.1.1",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-elements": "^1.2.7",
+    "react-native-fast-image": "^7.0.2",
+    "react-native-gesture-handler": "^1.5.2",
+    "react-native-image-picker": "^1.1.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.1",
+    "react-native-loading-spinner-overlay": "^1.0.1",
+    "react-native-modal": "^11.5.3",
+    "react-native-root-toast": "^3.2.0",
+    "react-native-splash-screen": "^3.2.0",
+    "react-native-vector-icons": "^6.6.0",
+    "react-navigation": "^4.0.10",
+    "react-navigation-stack": "^1.10.3",
+    "react-navigation-tabs": "^2.6.0",
+    "react-redux": "^7.1.3",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "reflective-bind": "^0.2.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-plugin-root-import": "^6.4.1",
+    "eslint": "^6.7.2",
+    "eslint-config-idiomatic": "^4.0.0",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-native": "^3.8.1",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "react-test-renderer": "16.9.0",
+    "remote-redux-devtools": "^0.5.16"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
