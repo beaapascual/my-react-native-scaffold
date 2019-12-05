@@ -63,9 +63,7 @@ export default class Register extends PureComponent {
                         placeholder={'john.doe@email.com'}
                         onSubmitEditing={() =>
                             this.password && this.password.focus()}/>
-                    <Text style={{ ...styles.text, marginTop: 8 }}>
-                        {this.props.t('Login:password.title')}
-                    </Text>
+                    <Text style={{ ...styles.text, marginTop: 8 }}>Password</Text>
                     <Input
                         ref={input =>
                             (this.password = input && input.inputRef)}
@@ -88,9 +86,7 @@ export default class Register extends PureComponent {
                         onSubmitEditing={() =>
                             this.confirmPassword &&
                             this.confirmPassword.focus()}/>
-                    <Text style={{ ...styles.text, marginTop: 8 }}>
-                        {this.props.t('Login:password.titleConfirm')}
-                    </Text>
+                    <Text style={{ ...styles.text, marginTop: 8 }}>Confirm Password</Text>
                     <Input
                         ref={input =>
                             (this.confirmPassword = input && input.inputRef)}

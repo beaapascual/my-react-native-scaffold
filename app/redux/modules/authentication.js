@@ -1,4 +1,4 @@
-import { register, login, logout } from '~/api/auth';
+import { register, login } from '~/api/auth';
 import { getAuthedUserProfile } from '~/api/users';
 import { showFlashNotification } from './flashNotification';
 import { saveLoginToken, deleteLoginToken } from '~/utils/helpers';
@@ -101,7 +101,6 @@ export function handleLoginViaEmail(email, password) {
 export function handleLogout() {
     return function(dispatch) {
         AppEventEmitter.emit(AppEvent.Logout);
-        logout();
         deleteLoginToken();
         dispatch(loggingOut());
     };
